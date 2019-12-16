@@ -2,7 +2,7 @@
   <div id="app">
     <h1>{{ counter }}</h1>
     <p>
-      {{ getMessage() }}
+      {{ getMessage() }} | {{ message }}
     </p>
     <p>
       {{ counter2 }}
@@ -24,6 +24,12 @@ export default {
   methods: {
     getMessage() {
       console.log("Method called");
+      return (this.counter < 5) ? "Меньше 5" : "Больше либо равно 5";
+    },
+  },
+  computed: {
+    message() {
+      console.log("Computed called");
       return (this.counter < 5) ? "Меньше 5" : "Больше либо равно 5";
     },
   },
