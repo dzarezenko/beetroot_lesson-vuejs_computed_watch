@@ -33,5 +33,19 @@ export default {
       return (this.counter < 5) ? "Меньше 5" : "Больше либо равно 5";
     },
   },
+  watch: {
+    counter() {
+      let _this = this;
+
+      //console.log("Counter:", value);
+      //console.log("Counter:", this.counter);
+      if (this.counter <= -10 || this.counter >= 10) {
+        setTimeout(function() {
+          console.log("Counter:", _this.counter);
+          _this.counter = 0;
+        }, 1000);
+      }
+    }
+  },
 }
 </script>
