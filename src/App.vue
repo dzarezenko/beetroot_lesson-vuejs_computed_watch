@@ -35,13 +35,16 @@ export default {
   },
   watch: {
     counter() {
+      let _this = this;
+
       //console.log("Counter:", value);
       //console.log("Counter:", this.counter);
       if (this.counter <= -10 || this.counter >= 10) {
-        setTimeout(() => {
-          console.log(this);
-          console.log("Counter:", this.counter);
-          this.counter = 0;
+        setTimeout(function tick() {
+          console.log("Counter:", _this.counter);
+          _this.counter = 0;
+
+          setTimeout(tick, 1000);
         }, 1000);
       }
     }
